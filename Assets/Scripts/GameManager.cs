@@ -14,6 +14,9 @@ public class GameManager : MonoBehaviour
     // 싱글톤 인스턴스
     public static GameManager Instance { get; private set; }
 
+    public GameObject gameOverUI;
+    public GameObject gameClearUI;
+
     void Awake()
     {
         // 싱글톤 인스턴스가 없으면 자신을 할당
@@ -43,5 +46,24 @@ public class GameManager : MonoBehaviour
                 player.MissileUp(); // 2개마다 미사일 업그레이드
             }
         }
+
+        if (coin >= 20)
+        {
+            GameClear();
+        }
+    }
+
+    
+
+    public void GameClear()
+    {
+        Time.timeScale = 0;
+        gameClearUI.SetActive(true);
+    }
+
+    public void GameOver()
+    {
+        Time.timeScale = 0;
+        gameOverUI.SetActive(false);
     }
 }

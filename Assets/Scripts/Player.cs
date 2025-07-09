@@ -6,6 +6,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     float moveSpeed = 1f;
 
+    public float playerHp = 3;
+
     // 현재 미사일 프리팹 인덱스 
     int missIndex = 0;
 
@@ -69,17 +71,32 @@ public class Player : MonoBehaviour
     {
         missIndex++;
         shootInverval = shootInverval - 0.1f;
-        
+
 
         if (shootInverval <= 0.1f)
         {
             shootInverval = 0.1f;
         }
 
-        
+
         if (missIndex >= missilePrefab.Length)
         {
             missIndex = missilePrefab.Length - 1;
         }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        playerHp -= damage;
+
+        if (playerHp <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        GameManager.Instance.GameOver();
     }
 }

@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
 
     // wjrdml cpfur
     public float enemyHp = 1;
+    public float enemyDamage = 1;
 
 
     [SerializeField]
@@ -63,9 +64,9 @@ public class Enemy : MonoBehaviour
             Missile missile = collision.GetComponent<Missile>();
             StopAllCoroutines();
             StartCoroutine("HitColor"); // Flash(); // 대체 가능
-            
 
             enemyHp = enemyHp - missile.missileDamage;
+
             if (enemyHp < 0)
             {
                 Destroy(gameObject);
@@ -74,6 +75,15 @@ public class Enemy : MonoBehaviour
             }
             TakeDamage(missile.missileDamage);
 
+        }
+
+        if (collision.tag == "Player")
+        {
+            Player player = collision.GetComponent<Player>();
+            if (player != null)
+            {
+                player.TakeDamage((int)enemyDamage);
+            }
         }
     }
 
