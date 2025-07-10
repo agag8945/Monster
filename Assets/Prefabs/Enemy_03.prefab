@@ -180,7 +180,7 @@ MonoBehaviour:
   flashColor: {r: 1, g: 0, b: 0, a: 1}
   flashDuration: 0.1
   enemyHp: 10
-  enemyDamage: 3
+  enemyDamage: 1
   moveSpeed: 1
   Coin: {fileID: 1333058060575800090, guid: 7347e258238824a40aaface55419a7c2, type: 3}
   Effect: {fileID: 6342507552349231116, guid: c685259a143c94b49bc6caf6581204ce, type: 3}

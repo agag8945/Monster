@@ -12,10 +12,12 @@ public class Missile : MonoBehaviour
     [SerializeField]
     GameObject Expeffect;
 
+    public Vector3 direction = Vector3.up;
+
     // Update is called once per frame
     void Update()
     {
-        transform.position += Vector3.up * moveSpeed * Time.deltaTime;
+        transform.position += direction * moveSpeed * Time.deltaTime;
         if (transform.position.y > 7f)
         {
             Destroy(this.gameObject);
