@@ -52,9 +52,6 @@ public class GameManager : MonoBehaviour
             GameClear();
         }
     }
-
-    
-
     public void GameClear()
     {
         Time.timeScale = 0;
